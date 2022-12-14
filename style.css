@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@300;500&family=Montserrat:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alkalami&family=M+PLUS+1+Code:wght@300;500&display=swap');
+*{margin: 0;padding: 0;box-sizing: border-box;}
+body{
+    background-color: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);
+    font-size: 15px;
+    color: #272424;
+    font-family: 'Montserrat', sans-serif;
+}
+nav{
+    z-index: 1;
+    border-bottom: 2px solid #abb8c3;
+    display: flex;
+    padding: 20px 20px 0px 20px;
+    
+    position: relative;
+}
+nav::before{
+    content: "";
+    position: absolute;
+    left: 200px;
+    top: 120px;
+    border: 20px solid transparent;
+    border-top-color: #abb8c3;
+}
+.max-width{
+    max-width: 100%;
+    width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navlist{
+    transition: .4s;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.navlist li{
+    width: 100%;
+    position: relative;
+    list-style: none;
+    margin-right:30px;
+}
+
+a{
+    padding: 40px;
+    display: block;
+    text-decoration: none;
+    color: #333;
+    font-weight: 700;
+}
+.li-flex{
+    position: relative;
+}
+.fa-angle-down{
+    position: absolute;
+    top: 30%;
+    left: 90%;
+}
+.li-flex a::after{
+    content: "";
+    width: 100%;
+    position: absolute;
+    height: 3px;
+    background-color:#3de99e;
+    top: 99%;
+    left: 0;
+    display: none;
+}
+.navlist > li:hover ::after{
+    display: block;
+}
+.submenu{
+    max-height: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 200px;
+    left: 0;
+    top: 100%;
+    background-color: #fff;
+}
+.submenu li a{border-bottom: 1px solid rgb(201, 196, 196);
+        padding: 20px;
+            }
+.navlist li:hover > .submenu{
+    opacity: 1;
+    visibility: visible;
+    max-height: initial;
+}
+
+.fa-bars{
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    display: none;
+}
+.fa-close{
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+}
+
+.cover{
+    height: 60vh;
+    width: 100%;
+    position: relative;
+    z-index: -1;
+}
+.cover img{
+    width:943px;
+    height: 737px;
+    object-fit: cover;
+    z-index: -22;
+    position: absolute;
+    right: -140px;
+    bottom: -10px;
+}
+.cover::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    opacity: 0.1;
+}
+.cont-title{
+    position: absolute;
+    z-index: 999;
+    top: 100px;
+    left: 100px;
+}
+.cont-title h1{
+    font-size: 82px;
+    line-height: 82px;
+    color: #272424;
+    font-family: 'Alkalami', serif;
+    font-weight: 900;
+}
+section{
+    position: relative;
+    z-index: 444;
+    height: 50vh;
+    width: 100%;
+    background-color: #443E3E;
+}
+.video-bg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    z-index: -100;
+    opacity: 0.7;
+    position: absolute;
+}
+
+section h1{
+    z-index: 22;
+    position: absolute;
+    font-size: 64px;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50% , -50%);
+}
+.cont img{
+    background-image: url('https://www.marchettidesign.net/wp-content/themes/marchettidesign-v8-1/img/andrea-marchetti-web-designer.png')no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+}
+
+@media(max-width:1300px){
+    .logo{
+        padding-left: 40px;
+    }
+    nav{
+        padding: 20px;
+    }
+    .navlist{
+        position: absolute;
+        width: 100%;
+        top: 100%;
+        left: 0;
+        height: 50vh;
+        overflow: scroll;
+        background-color: #F2F6F2;
+        flex-direction: column;
+        max-height: 0;
+    }
+    nav::before{
+        display: none;
+    }
+    .navlist li{
+        line-height: 4rem;
+        width: 100%;
+    }
+    .navlist li a {
+        display: flex;
+        width: 100%;
+        padding-left: 60px;
+    }
+    .fa-angle-down{
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 20px;
+    }
+   .submenu li:last-child{
+    border-bottom: none;
+   }
+    .submenu{
+        position: initial;
+        max-height: 0;
+        width: 100%;
+    }
+    .active .submenu{
+        max-height: initial;
+    }
+    .submenu li >.submenu{
+        background-color: #abb8c3;
+    }
+    .open >.submenu{
+        max-height: initial
+    }
+    .fa-bars{
+        visibility: visible;
+        opacity: 1;
+    }
+    .open .navlist{
+        max-height: 50vh;
+    }
+    .open .fa-bars{
+    opacity: 0;
+    visibility: hidden;
+}
+.open .fa-close{
+    opacity: 1;
+    visibility: visible;
+}
+}
+
